@@ -1,4 +1,3 @@
-
 * {
   box-sizing: border-box;
 }
@@ -7,18 +6,32 @@ html {
   min-width: 320px;
   min-height: 100%;
   background: #071426;
+  scroll-behavior: smooth;
 }
 
 body {
   min-width: 320px;
   min-height: 100vh;
   margin: 0;
+  font-family: 'Exo 2', sans-serif;
+  background: #071426;
+}
+
+button,
+input,
+textarea {
+  font: inherit;
 }
 
 button {
-  font-family: inherit;
+  -webkit-tap-highlight-color: transparent;
 }
 
 #root {
   min-height: 100vh;
+}
+
+::selection {
+  color: #fff;
+  background: rgba(57, 153, 226, 0.55);
 }
