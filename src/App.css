@@ -1463,7 +1463,7 @@ button {
 .subject-home-content {
   position: relative;
   z-index: 2;
-  margin: 0 76px;
+  margin: 0 112px;
 }
 
 .character-side-art {
@@ -1815,3 +1815,5 @@ button {
   .scene-particles,
   .ki-aura-flame { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; }
 }
+
+@media (max-width: 1350px) { .subject-home-content { margin: 0 25px; } }

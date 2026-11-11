@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useState, type FormEvent } from 'react'
 import StudyWorld from './components/StudyWorld'
+import AnimeSideCharacters from './components/AnimeSideCharacters'
 import './App.css'
 
 type Category = 'Principal' | 'Diária' | 'Instantânea' | 'Chefão' | 'Agendada'
@@ -190,42 +191,6 @@ function readJson<T>(key: string, fallback: T): T {
   } catch {
     return fallback
   }
-}
-
-function CharacterSideDecorations() {
-  const leftCharacters = [
-    { name: 'DEKU', symbol: '✦', className: 'deku', caption: 'DETERMINAÇÃO' },
-    { name: 'ASTA', symbol: '⚔', className: 'asta', caption: 'VONTADE' },
-  ]
-  const rightCharacters = [
-    { name: 'SAITAMA', symbol: '👊', className: 'saitama', caption: 'SUPERAÇÃO' },
-    { name: 'LELOUCH', symbol: '♟', className: 'lelouch', caption: 'ESTRATÉGIA' },
-  ]
-
-  return (
-    <div className="character-side-art" aria-hidden="true">
-      <div className="character-rail character-rail-left">
-        {leftCharacters.map((character) => (
-          <div className={`floating-character ${character.className}`} key={character.name}>
-            <span className="character-aura" />
-            <span className="character-glyph">{character.symbol}</span>
-            <strong>{character.name}</strong>
-            <small>{character.caption}</small>
-          </div>
-        ))}
-      </div>
-      <div className="character-rail character-rail-right">
-        {rightCharacters.map((character) => (
-          <div className={`floating-character ${character.className}`} key={character.name}>
-            <span className="character-aura" />
-            <span className="character-glyph">{character.symbol}</span>
-            <strong>{character.name}</strong>
-            <small>{character.caption}</small>
-          </div>
-        ))}
-      </div>
-    </div>
-  )
 }
 
 function App() {
@@ -467,7 +432,7 @@ function App() {
 
         {activeMenu === 'Matérias' && !selectedSubject && (
           <div className="subject-home">
-            <CharacterSideDecorations />
+            <AnimeSideCharacters />
             <div className="subject-home-content">
               <section className="subject-welcome">
                 <span className="panel-kicker"><span className="blue-dot" />SUA JORNADA DE CONHECIMENTO</span>

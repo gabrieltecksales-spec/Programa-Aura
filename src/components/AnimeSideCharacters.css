@@ -1,0 +1,119 @@
+/* Personagens decorativos nas laterais da biblioteca de matérias */
+.anime-side-decorations {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  overflow: visible;
+  pointer-events: none;
+}
+
+.anime-float {
+  --hero-glow: rgba(80, 207, 255, .55);
+  position: absolute;
+  width: clamp(88px, 7.5vw, 126px);
+  height: clamp(175px, 25vh, 245px);
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: flex-end;
+  opacity: .96;
+  filter: drop-shadow(0 0 13px var(--hero-glow));
+  animation: aura-hero-float 5.8s ease-in-out infinite;
+}
+
+.anime-float--deku { left: 0; top: 7%; --hero-glow: rgba(77, 255, 173, .6); }
+.anime-float--saitama { right: 0; top: 8%; --hero-glow: rgba(255, 204, 89, .6); animation-delay: -1.2s; }
+.anime-float--asta { left: 0; top: 54%; --hero-glow: rgba(255, 85, 100, .55); animation-delay: -2.5s; }
+.anime-float--lelouch { right: 0; top: 55%; --hero-glow: rgba(169, 113, 255, .62); animation-delay: -3.4s; }
+
+.anime-float-aura {
+  position: absolute;
+  inset: 4% 0 16%;
+  border-radius: 50%;
+  background: radial-gradient(ellipse, var(--hero-glow), transparent 68%);
+  filter: blur(19px);
+  opacity: .72;
+  animation: aura-hero-pulse 2.1s ease-in-out infinite alternate;
+}
+
+.anime-float-portrait {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 86%;
+  display: grid;
+  place-items: center;
+}
+
+.anime-float-portrait img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center bottom;
+  filter: drop-shadow(0 5px 13px rgba(0, 0, 0, .65));
+}
+
+.anime-fallback-mark {
+  width: 66%;
+  aspect-ratio: 1;
+  display: grid;
+  place-items: center;
+  border: 1px solid color-mix(in srgb, var(--hero-glow), white 25%);
+  border-radius: 50%;
+  color: #effaff;
+  background: radial-gradient(circle at 35% 28%, rgba(255,255,255,.25), rgba(8,23,44,.88) 65%);
+  box-shadow: 0 0 24px var(--hero-glow), inset 0 0 25px rgba(255,255,255,.08);
+  font-size: clamp(28px, 3vw, 46px);
+}
+
+.anime-float-name {
+  position: relative;
+  z-index: 2;
+  margin-top: 2px;
+  color: #eefaff;
+  font-family: Orbitron, sans-serif;
+  font-size: 8px;
+  font-weight: 800;
+  letter-spacing: 1.8px;
+  text-shadow: 0 0 12px var(--hero-glow), 0 2px 5px #00101e;
+}
+
+.anime-float-role {
+  position: relative;
+  z-index: 2;
+  margin-top: 4px;
+  color: #a7c7dc;
+  font-family: Orbitron, sans-serif;
+  font-size: 6px;
+  letter-spacing: 1px;
+  text-shadow: 0 2px 4px #00101e;
+}
+
+@keyframes aura-hero-float {
+  0%, 100% { transform: translateY(-10px) rotate(-1deg); }
+  50% { transform: translateY(13px) rotate(1.5deg); }
+}
+
+@keyframes aura-hero-pulse {
+  from { transform: scale(.82); opacity: .42; }
+  to { transform: scale(1.15); opacity: .9; }
+}
+
+@media (max-width: 1350px) {
+  .anime-side-decorations { display: none; }
+}
+
+@media (max-width: 1350px) {
+  .subject-home-content { margin: 0 25px; }
+}
+
+@media (max-height: 650px) {
+  .anime-float { height: 150px; }
+  .anime-float--asta, .anime-float--lelouch { display: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .anime-float, .anime-float-aura { animation: none !important; }
+}
